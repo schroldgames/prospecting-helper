@@ -1,0 +1,817 @@
+[
+  {
+    "id": "rubble-creek",
+    "name": "Rubble Creek",
+    "group": "Regular",
+    "deposits": [
+      {
+        "id": "rubble-creek-sands",
+        "name": "Rubble Creek Sands",
+        "minerals": [
+          "Gold",
+          "Platinum",
+          "Amethyst",
+          "Titanium",
+          "Topaz",
+          "Ruby",
+          "Lapis Lazuli",
+          "Meteoric Iron",
+          "Iridium",
+          "Emerald",
+          "Opal",
+          "Aurorite",
+          "Rose Gold",
+          "Diamond",
+          "Aetherite",
+          "Pink Diamond"
+        ]
+      },
+      {
+        "id": "rubble-creek-deposits",
+        "name": "Rubble Creek Deposits",
+        "minerals": [
+          "Pyrite",
+          "Gold",
+          "Platinum",
+          "Titanium",
+          "Topaz",
+          "Sapphire",
+          "Ruby",
+          "Lapis Lazuli",
+          "Meteoric Iron",
+          "Iridium",
+          "Emerald",
+          "Osmium",
+          "Opal",
+          "Aurorite",
+          "Rose Gold",
+          "Diamond",
+          "Catseye",
+          "Aetherite",
+          "Pink Diamond"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fortune-river",
+    "name": "Fortune River",
+    "group": "Regular",
+    "deposits": [
+      {
+        "id": "fortune-river-digsite",
+        "name": "Fortune River",
+        "minerals": [
+          "Gold",
+          "Platinum",
+          "Titanium",
+          "Topaz",
+          "Sapphire",
+          "Ruby",
+          "Lapis Lazuli",
+          "Jade",
+          "Meteoric Iron",
+          "Iridium",
+          "Emerald",
+          "Osmium",
+          "Opal",
+          "Aurorite",
+          "Rose Gold",
+          "Palladium",
+          "Diamond",
+          "Uranium",
+          "Catseye",
+          "Aetherite",
+          "Pink Diamond",
+          "Painite"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fortune-river-delta",
+    "name": "Fortune River Delta",
+    "group": "Regular",
+    "deposits": [
+      {
+        "id": "fortune-river-delta-digsite",
+        "name": "Fortune River Delta",
+        "minerals": [
+          "Silver",
+          "Gold",
+          "Pearl",
+          "Neodymium",
+          "Topaz",
+          "Smoky Quartz",
+          "Coral",
+          "Jade",
+          "Silver Clamshell",
+          "Onyx",
+          "Iridium",
+          "Moonstone",
+          "Golden Pearl",
+          "Aurorite",
+          "Palladium",
+          "Diamond",
+          "Uranium",
+          "Aetherite",
+          "Pink Diamond",
+          "Painite",
+          "Vortessence"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "crystal-caverns",
+    "name": "Crystal Caverns",
+    "group": "Regular",
+    "deposits": [
+      {
+        "id": "crystal-cavern-river",
+        "name": "Crystal Cavern River",
+        "minerals": [
+          "Silver",
+          "Copper",
+          "Gold",
+          "Amethyst",
+          "Neodymium",
+          "Smoky Quartz",
+          "Malachite",
+          "Onyx",
+          "Azuralite",
+          "Ashvein",
+          "Emerald",
+          "Borealite",
+          "Osmium",
+          "Palladium",
+          "Luminum",
+          "Starshine",
+          "Aetherite",
+          "Inferlume",
+          "Vortessence"
+        ]
+      },
+      {
+        "id": "azuralite-oasis",
+        "name": "Azuralite Oasis",
+        "minerals": [
+          "Silver",
+          "Copper",
+          "Gold",
+          "Amethyst",
+          "Neodymium",
+          "Smoky Quartz",
+          "Malachite",
+          "Onyx",
+          "Azuralite",
+          "Ashvein",
+          "Emerald",
+          "Borealite",
+          "Osmium",
+          "Palladium",
+          "Uranium",
+          "Luminum",
+          "Starshine",
+          "Aetherite",
+          "Inferlume",
+          "Vortessence",
+          "Prismara"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sunset-beach",
+    "name": "Sunset Beach",
+    "group": "Regular",
+    "deposits": [
+      {
+        "id": "sunset-beach-digsite",
+        "name": "Sunset Beach",
+        "minerals": [
+          "Silver",
+          "Seashell",
+          "Pearl",
+          "Neodymium",
+          "Smoky Quartz",
+          "Coral",
+          "Silver Clamshell",
+          "Onyx",
+          "Moonstone",
+          "Ashvein",
+          "Golden Pearl",
+          "Opal",
+          "Diamond",
+          "Luminum",
+          "Aetherite",
+          "Painite",
+          "Inferlume"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "volcanic-sands",
+    "name": "Volcanic Sands",
+    "group": "Regular",
+    "deposits": [
+      {
+        "id": "volcanic-sands-digsite",
+        "name": "Volcanic Sands",
+        "minerals": [
+          "Copper",
+          "Gold",
+          "Obsidian",
+          "Topaz",
+          "Zircon",
+          "Peridot",
+          "Onyx",
+          "Meteoric Iron",
+          "Pyronium",
+          "Osmium",
+          "Opal",
+          "Rose Gold",
+          "Cinnabar",
+          "Fire Opal",
+          "Catseye",
+          "Pink Diamond",
+          "Inferlume",
+          "Flarebloom"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "volcanic-springs",
+    "name": "Volcanic Springs",
+    "group": "Regular",
+    "deposits": [
+      {
+        "id": "volcanic-springs-digsite",
+        "name": "Volcanic Springs",
+        "minerals": [
+          "Copper",
+          "Gold",
+          "Obsidian",
+          "Topaz",
+          "Zircon",
+          "Peridot",
+          "Onyx",
+          "Meteoric Iron",
+          "Pyronium",
+          "Osmium",
+          "Opal",
+          "Rose Gold",
+          "Cinnabar",
+          "Fire Opal",
+          "Catseye",
+          "Radium",
+          "Pink Diamond",
+          "Inferlume",
+          "Flarebloom"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "windswept-beach",
+    "name": "Windswept Beach",
+    "group": "Regular",
+    "deposits": [
+      {
+        "id": "windswept-beach-digsite",
+        "name": "Windswept Beach",
+        "minerals": [
+          "Seashell",
+          "Obsidian",
+          "Pearl",
+          "Topaz",
+          "Malachite",
+          "Coral",
+          "Silver Clamshell",
+          "Peridot",
+          "Onyx",
+          "Meteoric Iron",
+          "Ammonite Fossil",
+          "Osmium",
+          "Opal",
+          "Rose Gold",
+          "Dragon Bone",
+          "Catseye",
+          "Inferlume",
+          "Vortessence"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "the-magma-furnace",
+    "name": "The Magma Furnace",
+    "group": "Regular",
+    "deposits": [
+      {
+        "id": "magma-furnace-digsite",
+        "name": "The Magma Furnace",
+        "minerals": [
+          "Copper",
+          "Gold",
+          "Obsidian",
+          "Topaz",
+          "Zircon",
+          "Peridot",
+          "Onyx",
+          "Pyrelith",
+          "Pyronium",
+          "Osmium",
+          "Opal",
+          "Rose Gold",
+          "Cinnabar",
+          "Fire Opal",
+          "Dragon Bone",
+          "Catseye",
+          "Volcanic Key",
+          "Flarebloom",
+          "Volcanic Core"
+        ]
+      },
+      {
+        "id": "infernal-heart",
+        "name": "Infernal Heart",
+        "minerals": [
+          "Copper",
+          "Obsidian",
+          "Topaz",
+          "Zircon",
+          "Peridot",
+          "Onyx",
+          "Pyrelith",
+          "Pyronium",
+          "Osmium",
+          "Opal",
+          "Rose Gold",
+          "Cinnabar",
+          "Uranium",
+          "Volcanic Key",
+          "Fire Opal",
+          "Dragon Bone",
+          "Painite",
+          "Inferlume",
+          "Flarebloom",
+          "Volcanic Core",
+          "Dinosaur Skull"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "snowy-mountain",
+    "name": "Snowy Mountain",
+    "group": "Regular",
+    "deposits": [
+      {
+        "id": "frostbite-river",
+        "name": "Frostbite River",
+        "minerals": [
+          "Silver",
+          "Blue Ice",
+          "Titanium",
+          "Sapphire",
+          "Lapis Lazuli",
+          "Jade",
+          "Glacial Quartz",
+          "Iridium",
+          "Emerald",
+          "Cobalt",
+          "Borealite",
+          "Palladium",
+          "Diamond",
+          "Tourmaline",
+          "Aquamarine",
+          "Vortessence",
+          "Mythril"
+        ]
+      },
+      {
+        "id": "frostbite-waterfall",
+        "name": "Frostbite Waterfall",
+        "minerals": [
+          "Silver",
+          "Blue Ice",
+          "Titanium",
+          "Sapphire",
+          "Lapis Lazuli",
+          "Jade",
+          "Glacial Quartz",
+          "Iridium",
+          "Cobalt",
+          "Borealite",
+          "Aurorite",
+          "Diamond",
+          "Tourmaline",
+          "Aquamarine",
+          "Vortessence",
+          "Mythril",
+          "Frostshard"
+        ]
+      },
+      {
+        "id": "frozen-peak",
+        "name": "Frozen Peak",
+        "minerals": [
+          "Silver",
+          "Blue Ice",
+          "Titanium",
+          "Sapphire",
+          "Lapis Lazuli",
+          "Jade",
+          "Glacial Quartz",
+          "Iridium",
+          "Cobalt",
+          "Borealite",
+          "Aurorite",
+          "Diamond",
+          "Tourmaline",
+          "Aquamarine",
+          "Aetherite",
+          "Mythril",
+          "Frostshard",
+          "Cryonic Artifact"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "overgrown-grotto",
+    "name": "Overgrown Grotto",
+    "group": "Regular",
+    "deposits": [
+      {
+        "id": "overgrown-grotto-digsite",
+        "name": "Overgrown Grotto",
+        "minerals": [
+          "Silver",
+          "Copper",
+          "Gold",
+          "Smoky Quartz",
+          "Malachite",
+          "Neodymium",
+          "Glowberry",
+          "Azuralite",
+          "Glowmoss",
+          "Emerald",
+          "Cobalt",
+          "Lightshard",
+          "Aurorite",
+          "Luminum",
+          "Starshine",
+          "Specterite",
+          "Aetherite",
+          "Chrysoberyl",
+          "Prismara"
+        ]
+      },
+      {
+        "id": "deeproot-spring",
+        "name": "Deeproot Spring",
+        "minerals": [
+          "Silver",
+          "Copper",
+          "Gold",
+          "Neodymium",
+          "Glowberry",
+          "Smoky Quartz",
+          "Malachite",
+          "Amber",
+          "Azuralite",
+          "Glowmoss",
+          "Emerald",
+          "Cobalt",
+          "Lightshard",
+          "Aurorite",
+          "Luminum",
+          "Starshine",
+          "Specterite",
+          "Aetherite",
+          "Chrysoberyl",
+          "Radiant Gold",
+          "Vineheart"
+        ]
+      },
+      {
+        "id": "abyssal-depths",
+        "name": "Abyssal Depths",
+        "minerals": [
+          "Copper",
+          "Gold",
+          "Silver",
+          "Malachite",
+          "Neodymium",
+          "Smoky Quartz",
+          "Amber",
+          "Azuralite",
+          "Gloomberry",
+          "Aurorite",
+          "Cobalt",
+          "Emerald",
+          "Lightshard",
+          "Aetherite",
+          "Specterite",
+          "Starshine",
+          "Painite",
+          "Radiant Gold",
+          "Umbrite"
+        ]
+      },
+      {
+        "id": "enchanted-ruins",
+        "name": "Enchanted Ruins",
+        "minerals": [
+          "Silver",
+          "Gold",
+          "Neodymium",
+          "Glowberry",
+          "Smoky Quartz",
+          "Malachite",
+          "Amber",
+          "Azuralite",
+          "Glowmoss",
+          "Emerald",
+          "Cobalt",
+          "Lightshard",
+          "Aurorite",
+          "Luminum",
+          "Starshine",
+          "Specterite",
+          "Aetherite",
+          "Rose Gold",
+          "Firefly Stone",
+          "Radiant Gold",
+          "Mythril",
+          "Prismara",
+          "Adamantine"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rotwood-swamp",
+    "name": "Rotwood Swamp",
+    "group": "Regular",
+    "deposits": [
+      {
+        "id": "rotwood-swamp-digsite",
+        "name": "Rotwood Swamp",
+        "minerals": [
+          "Copper",
+          "Gold",
+          "Titanium",
+          "Electrum",
+          "Smoky Quartz",
+          "Malachite",
+          "Onyx",
+          "Diopside",
+          "Bone",
+          "Emerald",
+          "Cobalt",
+          "Osmium",
+          "Mercury",
+          "Diamond",
+          "Bismuth",
+          "Specterite",
+          "Mythril",
+          "Chrysoberyl",
+          "Star Garnet",
+          "Bloodstone"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fungal-marsh",
+    "name": "Fungal Marsh",
+    "group": "Regular",
+    "deposits": [
+      {
+        "id": "fungal-marsh-digsite",
+        "name": "Fungal Marsh",
+        "minerals": [
+          "Copper",
+          "Gold",
+          "Titanium",
+          "Electrum",
+          "Smoky Quartz",
+          "Malachite",
+          "Onyx",
+          "Diopside",
+          "Bone",
+          "Emerald",
+          "Cobalt",
+          "Osmium",
+          "Mercury",
+          "Diamond",
+          "Gloomcap",
+          "Bismuth",
+          "Mythril",
+          "Red Beryl",
+          "Star Garnet",
+          "Astral Spore"
+        ]
+      },
+      {
+        "id": "timelocked-sanctuary",
+        "name": "Timelocked Sanctuary",
+        "minerals": [
+          "Silver",
+          "Gold",
+          "Electrum",
+          "Topaz",
+          "Smoky Quartz",
+          "Malachite",
+          "Onyx",
+          "Diopside",
+          "Glowmoss",
+          "Emerald",
+          "Cobalt",
+          "Osmium",
+          "Lightshard",
+          "Mercury",
+          "Diamond",
+          "Firefly Stone",
+          "Starshine",
+          "Bismuth",
+          "Aetherite",
+          "Red Beryl",
+          "Radiant Gold",
+          "Star Garnet",
+          "Bloodstone",
+          "Astral Spore",
+          "Eternium"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "meteor-valley",
+    "name": "Meteor Valley",
+    "group": "Regular",
+    "deposits": [
+      {
+        "id": "meteor-falls",
+        "name": "Meteor Falls",
+        "minerals": [
+          "Gold",
+          "Pyrite",
+          "Nickel",
+          "Electrum",
+          "Sapphire",
+          "Lapis Lazuli",
+          "Jade",
+          "Opal",
+          "Cobalt",
+          "Iridium",
+          "Moonstone",
+          "Mercury",
+          "Diamond",
+          "Radium",
+          "Depleted Shard",
+          "Vortessence",
+          "Sunstone",
+          "Star Garnet",
+          "Starpiercer"
+        ]
+      },
+      {
+        "id": "starfall-river",
+        "name": "Starfall River",
+        "minerals": [
+          "Gold",
+          "Pyrite",
+          "Sapphire",
+          "Electrum",
+          "Nickel",
+          "Lapis Lazuli",
+          "Jade",
+          "Opal",
+          "Aurorite",
+          "Iridium",
+          "Moonstone",
+          "Meteoric Gold",
+          "Aquamarine",
+          "Palladium",
+          "Depleted Shard",
+          "Vortessence",
+          "Star Garnet",
+          "Sunstone",
+          "Singularium"
+        ]
+      },
+      {
+        "id": "astral-caverns",
+        "name": "Astral Caverns",
+        "minerals": [
+          "Gold",
+          "Silver",
+          "Nickel",
+          "Sapphire",
+          "Electrum",
+          "Meteoric Iron",
+          "Lapis Lazuli",
+          "Jade",
+          "Opal",
+          "Aurorite",
+          "Iridium",
+          "Moonstone",
+          "Meteoric Gold",
+          "Aquamarine",
+          "Palladium",
+          "Depleted Shard",
+          "Vortessence",
+          "Red Beryl",
+          "Sunstone",
+          "Celestium"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "the-void",
+    "name": "The Void",
+    "group": "Limited Time",
+    "deposits": [
+      {
+        "id": "the-void-digsite",
+        "name": "The Void",
+        "minerals": [
+          "Voidstone"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "haunted-creek",
+    "name": "Haunted Creek",
+    "group": "Limited Time",
+    "deposits": [
+      {
+        "id": "haunted-creek-digsite",
+        "name": "Haunted Creek",
+        "minerals": [
+          "Silver",
+          "Copper",
+          "Gold",
+          "Titanium",
+          "Smoky Quartz",
+          "Malachite",
+          "Rock Candy",
+          "Lapis Lazuli",
+          "Bone",
+          "Emerald",
+          "Cobalt",
+          "Lightshard",
+          "Diamond",
+          "Specterite",
+          "Aetherite",
+          "Lost Soul",
+          "Painite",
+          "Vortessence",
+          "Radiant Gold",
+          "Aurorite",
+          "Pumpkin Soul"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "north-pole",
+    "name": "North Pole",
+    "group": "Limited Time",
+    "deposits": [
+      {
+        "id": "north-pole-digsite",
+        "name": "North Pole",
+        "minerals": [
+          "Silver",
+          "Gold",
+          "Blue Ice",
+          "Titanium",
+          "Sapphire",
+          "Jade",
+          "Candy Cane",
+          "Glacial Quartz",
+          "Iridium",
+          "Cobalt",
+          "Borealite",
+          "Aurorite",
+          "Diamond",
+          "Peppermint Prism",
+          "Aquamarine",
+          "Aetherite",
+          "Pink Diamond",
+          "Frostshard",
+          "North Star"
+        ]
+      }
+    ]
+  }
+]

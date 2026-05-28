@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.btn-scale {
+  transition: transform 0.12s ease;
+}
+
+@media (hover: hover) {
+  .btn-scale:hover {
+    transform: scale(1.04);
+  }
+}
+
+.btn-scale:active {
+  transform: scale(0.96);
+}
