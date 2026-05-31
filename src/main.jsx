@@ -8,6 +8,10 @@ import './index.css'
 import App from './App.jsx'
 import { theme } from './theme.ts'
 
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js')
+}
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <MantineProvider theme={theme} defaultColorScheme="dark">

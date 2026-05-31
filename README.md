@@ -28,5 +28,5 @@ npm run dev
 
 ## TODO
 
-- [ ] Add a favicon
+- [x] Add a favicon
 - [ ] Add a linter (ESLint)

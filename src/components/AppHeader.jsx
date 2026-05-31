@@ -16,6 +16,7 @@ export default function AppHeader({ navOpened, onToggleNav }) {
     <Group px="md" style={{ width: '100%' }} justify="space-between" wrap="nowrap">
       <Group gap="sm" wrap="nowrap">
         <Burger opened={isMobile && navOpened} onClick={onToggleNav} size="sm" />
+        <img src="/icon.svg" alt="" aria-hidden="true" style={{ height: '2rem', width: '2rem' }} />
         <Title order={4} style={{ lineHeight: 1 }}>Prospecting Helper</Title>
       </Group>
 
