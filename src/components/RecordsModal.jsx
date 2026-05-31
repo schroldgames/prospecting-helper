@@ -50,7 +50,7 @@ export default function RecordsModal({ opened, onClose, onConfirm, records, mine
     >
       <Stack gap="xs">
         <Group justify="flex-end">
-          <Button variant="subtle" size="xs" color="gray" px={4} onClick={toggleAll}>
+          <Button variant="light" size="xs" color="gray" px={4} onClick={toggleAll}>
             {allSelected ? 'Deselect All' : 'Select All'}
           </Button>
         </Group>

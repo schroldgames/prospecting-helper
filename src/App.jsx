@@ -1,4 +1,4 @@
-import { AppShell, Box, Container, Paper, ScrollArea, Stack, Text } from '@mantine/core'
+import { AppShell, Box, Container, Paper, ScrollArea, Stack } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import AppHeader from './components/AppHeader'
 import RecordTrackerToolbar from './components/RecordTrackerToolbar'
@@ -7,6 +7,7 @@ import MineralGrid from './components/MineralGrid'
 import RecordsBar from './components/RecordsBar'
 import { usePersistedState } from './hooks/usePersistedState'
 import { useIsMobile } from './hooks/useIsMobile'
+import { useSwipe } from './hooks/useSwipe'
 import locations from './data/index.js'
 function findLocation(id) { return locations.find(l => l.id === id) ?? null }
 function findDeposit(loc, id) { return loc?.deposits.find(d => d.id === id) ?? null }
@@ -50,6 +51,13 @@ export default function App() {
 
   const depositRecords = selectedDeposit ? (records[selectedDeposit.id] ?? new Set()) : new Set()
 
+  const deposits = selectedLocation?.deposits ?? []
+  const depositIndex = deposits.findIndex(d => d.id === selectedDeposit?.id)
+  const swipeHandlers = useSwipe({
+    onSwipeLeft:  depositIndex < deposits.length - 1 ? () => setDepositId(deposits[depositIndex + 1].id) : undefined,
+    onSwipeRight: depositIndex > 0                   ? () => setDepositId(deposits[depositIndex - 1].id) : undefined,
+  })
+
   return (
     <AppShell
       navbar={{ ...navbarConfig, collapsed: { mobile: !navOpened, desktop: !navOpened } }}
@@ -79,29 +87,25 @@ export default function App() {
           onSelectDeposit={dep => setDepositId(dep.id)}
         />
 
-        <Box style={{ flex: 1, minHeight: 0, overflow: 'auto' }}>
+        <Box style={{ flex: 1, minHeight: 0, overflow: 'auto' }} {...swipeHandlers}>
           <Container size="md" py="lg" style={{ height: '100%' }}>
-            {selectedLocation && selectedDeposit ? (
-              <Stack gap="lg" style={{ height: '100%' }}>
-                <Paper withBorder shadow="xl" p="md" bg="var(--mantine-color-default)" style={{ flex: 1, minHeight: 0 }}>
-                  <ScrollArea h="100%" scrollbars="y">
-                    <Box px="xs">
-                      <MineralGrid
-                        minerals={selectedDeposit.minerals}
-                        records={depositRecords}
-                        onToggle={toggleRecord}
-                      />
-                    </Box>
-                  </ScrollArea>
-                </Paper>
+            <Stack gap="lg" style={{ height: '100%' }}>
+              <Paper withBorder shadow="xl" p="md" bg="var(--mantine-color-default)" style={{ flex: 1, minHeight: 0 }}>
+                <ScrollArea h="100%" scrollbars="y" scrollbarSize={6} styles={{ thumb: { opacity: 0.4 } }}>
+                  <Box px="xs">
+                    <MineralGrid
+                      minerals={selectedDeposit.minerals}
+                      records={depositRecords}
+                      onToggle={toggleRecord}
+                    />
+                  </Box>
+                </ScrollArea>
+              </Paper>
 
-                {depositRecords.size > 0 && (
-                  <RecordsBar records={depositRecords} minerals={selectedDeposit.minerals} onClear={clearAll} onUnflag={unflagMinerals} />
-                )}
-              </Stack>
-            ) : (
-              <Text mt="xl">Open the menu to select a location.</Text>
-            )}
+              {depositRecords.size > 0 && (
+                <RecordsBar records={depositRecords} minerals={selectedDeposit.minerals} onClear={clearAll} onUnflag={unflagMinerals} />
+              )}
+            </Stack>
           </Container>
         </Box>
       </AppShell.Main>

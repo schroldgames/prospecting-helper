@@ -3,11 +3,18 @@ body {
   overflow-x: hidden;
 }
 
+.scrollbar-none {
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
 .btn-scale {
   transition: transform 0.12s ease;
 }
 
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
   .btn-scale:hover {
     transform: scale(1.04);
   }

@@ -9,7 +9,7 @@ export default function LocationNav({ selectedLocationId, onSelectLocation }) {
     <>
       <AppShell.Section grow component={ScrollArea}>
         <Stack gap="lg" p="md">
-          {['Regular', 'Limited Time'].map(group => (
+          {['Regular', 'Special', 'Limited Time'].map(group => (
             <LocationGroup
               key={group}
               group={group}

@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react'
+import locations from '../data/index.js'
 
 const STORAGE_KEY = 'prospecting-helper-session'
+const DEFAULT_LOCATION_ID = 'rubble-creek'
+const DEFAULT_DEPOSIT_ID = 'rubble-creek-sands'
 
 function loadSession() {
   try {
@@ -33,11 +36,25 @@ function saveSession(locationId, depositId, records) {
   }
 }
 
+function resolveIds(savedLocationId, savedDepositId) {
+  const location = locations.find(l => l.id === savedLocationId)
+  if (!location) return { locationId: DEFAULT_LOCATION_ID, depositId: DEFAULT_DEPOSIT_ID }
+  const deposit = location.deposits.find(d => d.id === savedDepositId)
+  return {
+    locationId: location.id,
+    depositId: deposit ? deposit.id : location.deposits[0].id,
+  }
+}
+
 export function usePersistedState() {
   const saved = loadSession()
+  const { locationId: initialLocationId, depositId: initialDepositId } = resolveIds(
+    saved?.locationId ?? DEFAULT_LOCATION_ID,
+    saved?.depositId ?? DEFAULT_DEPOSIT_ID,
+  )
 
-  const [locationId, setLocationId] = useState(saved?.locationId ?? null)
-  const [depositId, setDepositId] = useState(saved?.depositId ?? null)
+  const [locationId, setLocationId] = useState(initialLocationId)
+  const [depositId, setDepositId] = useState(initialDepositId)
   const [records, setRecords] = useState(saved?.records ?? {})
 
   useEffect(() => {

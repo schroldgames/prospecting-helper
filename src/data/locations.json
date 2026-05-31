@@ -468,7 +468,8 @@
           "Specterite",
           "Aetherite",
           "Chrysoberyl",
-          "Prismara"
+          "Prismara",
+          "Firefly Stone"
         ]
       },
       {
@@ -495,7 +496,8 @@
           "Aetherite",
           "Chrysoberyl",
           "Radiant Gold",
-          "Vineheart"
+          "Vineheart",
+          "Firefly Stone"
         ]
       },
       {
@@ -737,7 +739,7 @@
   {
     "id": "the-void",
     "name": "The Void",
-    "group": "Limited Time",
+    "group": "Special",
     "deposits": [
       {
         "id": "the-void-digsite",
