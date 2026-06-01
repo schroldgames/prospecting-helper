@@ -20,17 +20,5 @@ export interface Location {
   deposits: Deposit[]
 }
 
-export interface RawDeposit {
-  id: string
-  name: string
-  minerals: string[]
-}
-
-export interface RawLocation {
-  id: string
-  name: string
-  group: LocationGroupLabel
-  deposits: RawDeposit[]
-}
 
 export type Records = Record<string, Set<string>>

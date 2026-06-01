@@ -1,8 +1,16 @@
 import { Drawer, Stack, Text } from '@mantine/core'
-import locations from '../../data/locations.json'
+import locations from '../../data/index'
 import LocationGroup from './LocationGroup'
+import type { Location } from '../../types'
 
-export default function LocationDrawer({ opened, onClose, selectedLocationId, onSelectLocation }) {
+interface LocationDrawerProps {
+  opened: boolean
+  onClose: () => void
+  selectedLocationId: string | undefined
+  onSelectLocation: (location: Location) => void
+}
+
+export default function LocationDrawer({ opened, onClose, selectedLocationId, onSelectLocation }: LocationDrawerProps) {
   return (
     <Drawer
       opened={opened}
@@ -10,7 +18,7 @@ export default function LocationDrawer({ opened, onClose, selectedLocationId, on
       title={<Text fw={600}>Select Location</Text>}
     >
       <Stack gap="lg">
-        {['Regular', 'Limited Time'].map(group => (
+        {(['Regular', 'Limited Time'] as const).map(group => (
           <LocationGroup
             key={group}
             group={group}

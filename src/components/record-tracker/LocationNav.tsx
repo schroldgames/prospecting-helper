@@ -1,15 +1,21 @@
 import { AppShell, Divider, Group, HoverCard, ScrollArea, Stack, Text } from '@mantine/core'
 import { IconHelp } from '@tabler/icons-react'
-import locations from '../../data/locations.json'
+import locations from '../../data/index'
 import LocationGroup from './LocationGroup'
 import HeaderButton from '../common/HeaderButton'
+import type { Location } from '../../types'
 
-export default function LocationNav({ selectedLocationId, onSelectLocation }) {
+interface LocationNavProps {
+  selectedLocationId: string | undefined
+  onSelectLocation: (location: Location) => void
+}
+
+export default function LocationNav({ selectedLocationId, onSelectLocation }: LocationNavProps) {
   return (
     <>
       <AppShell.Section grow component={ScrollArea}>
         <Stack gap="lg" p="md">
-          {['Regular', 'Special', 'Limited Time'].map(group => (
+          {(['Regular', 'Special', 'Limited Time'] as const).map(group => (
             <LocationGroup
               key={group}
               group={group}

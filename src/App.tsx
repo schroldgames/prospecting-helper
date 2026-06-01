@@ -11,7 +11,7 @@ import { useIsMobile } from './hooks/useIsMobile'
 import { useSwipe } from './hooks/useSwipe'
 import locations from './data/index'
 import mineralsData from './data/minerals.json'
-import type { Location, Deposit, RawLocation, Rarity, Records } from './types'
+import type { Location, Deposit, Rarity, Records } from './types'
 
 const minerals = mineralsData as Record<string, Rarity>
 
@@ -30,7 +30,7 @@ export default function App() {
   const selectedLocation = findLocation(locationId)
   const selectedDeposit = findDeposit(selectedLocation, depositId)
 
-  function selectLocation(loc: RawLocation) {
+  function selectLocation(loc: Location) {
     setLocationId(loc.id)
     setDepositId(loc.deposits[0].id)
     if (isMobile) closeNav()
