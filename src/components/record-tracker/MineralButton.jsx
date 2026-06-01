@@ -11,7 +11,7 @@ function gradientAtOpacity(gradient, opacity) {
   })
 }
 
-export default function MineralButton({ name, rarity, flagged, onClick }) {
+export default function MineralButton({ name, rarity, recorded, onClick }) {
   const isDark = useComputedColorScheme('dark') === 'dark'
   const gradient = RarityGradients[rarity]
 
@@ -23,12 +23,12 @@ export default function MineralButton({ name, rarity, flagged, onClick }) {
       className="btn-scale"
       onClick={onClick}
       style={{
-        background: flagged ? gradient : gradientAtOpacity(gradient, 0.55),
+        background: recorded ? gradient : gradientAtOpacity(gradient, 0.55),
         position: 'relative',
       }}
     >
       {name}
-      {flagged && (
+      {recorded && (
         <span style={{
           position: 'absolute',
           top: 4,

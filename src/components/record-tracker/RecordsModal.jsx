@@ -1,7 +1,8 @@
 import { Button, Checkbox, Group, Modal, Stack, Text, UnstyledButton } from '@mantine/core'
 import { useState } from 'react'
 import { IconStarFilled } from '@tabler/icons-react'
-import { RarityColors, RarityOrder } from '../../constants/rarities'
+import { RarityColors } from '../../constants/rarities'
+import { sortByRarity } from '../../utils/minerals'
 
 function StarIcon({ className }) {
   return <IconStarFilled className={className} />
@@ -11,9 +12,7 @@ export default function RecordsModal({ opened, onClose, onConfirm, records, mine
   const [favorited, setFavorited] = useState(new Set())
 
   const rarityByName = Object.fromEntries(minerals.map(m => [m.name, m.rarity]))
-  const sorted = [...records].sort((a, b) =>
-    RarityOrder.indexOf(rarityByName[a]) - RarityOrder.indexOf(rarityByName[b])
-  )
+  const sorted = sortByRarity([...records], name => rarityByName[name])
 
   function toggleFavorite(name) {
     setFavorited(prev => {

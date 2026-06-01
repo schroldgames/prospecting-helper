@@ -5,17 +5,19 @@ import AppNavbar, { navbarConfig } from './components/layout/AppNavbar'
 import RecordTrackerToolbar from './components/record-tracker/RecordTrackerToolbar'
 import MineralGrid from './components/record-tracker/MineralGrid'
 import RecordsBar from './components/record-tracker/RecordsBar'
+import VoidMineralInput from './components/record-tracker/VoidMineralInput'
 import { usePersistedState } from './hooks/usePersistedState'
 import { useIsMobile } from './hooks/useIsMobile'
 import { useSwipe } from './hooks/useSwipe'
 import locations from './data/index.js'
+import mineralsData from './data/minerals.json'
 function findLocation(id) { return locations.find(l => l.id === id) ?? null }
 function findDeposit(loc, id) { return loc?.deposits.find(d => d.id === id) ?? null }
 
 export default function App() {
   const isMobile = useIsMobile()
   const [navOpened, { toggle: toggleNav, close: closeNav }] = useDisclosure(false)
-  const { locationId, setLocationId, depositId, setDepositId, records, setRecords } = usePersistedState()
+  const { locationId, setLocationId, depositId, setDepositId, records, setRecords, voidMinerals, setVoidMinerals } = usePersistedState()
 
   const selectedLocation = findLocation(locationId)
   const selectedDeposit = findDeposit(selectedLocation, depositId)
@@ -23,7 +25,6 @@ export default function App() {
   function selectLocation(loc) {
     setLocationId(loc.id)
     setDepositId(loc.deposits[0].id)
-    setRecords({})
     if (isMobile) closeNav()
   }
 
@@ -36,11 +37,25 @@ export default function App() {
     })
   }
 
-  function clearAll() {
-    setRecords({})
+  function clearDepositRecords() {
+    const id = selectedDeposit.id
+    setRecords(prev => ({ ...prev, [id]: new Set() }))
   }
 
-  function unflagMinerals(names) {
+  function addVoidMineral(name) {
+    setVoidMinerals(prev => [...prev, name])
+  }
+
+  function clearVoidMinerals() {
+    setRecords(prev => {
+      const current = new Set(prev['the-void-digsite'] ?? [])
+      voidMinerals.forEach(name => current.delete(name))
+      return { ...prev, 'the-void-digsite': current }
+    })
+    setVoidMinerals([])
+  }
+
+  function unrecordMinerals(names) {
     const id = selectedDeposit.id
     setRecords(prev => {
       const current = new Set(prev[id] ?? [])
@@ -50,6 +65,12 @@ export default function App() {
   }
 
   const depositRecords = selectedDeposit ? (records[selectedDeposit.id] ?? new Set()) : new Set()
+
+  const isVoid = selectedLocation?.id === 'the-void'
+  const displayedMinerals = isVoid
+    ? [...(selectedDeposit?.minerals ?? []), ...voidMinerals.map(name => ({ name, rarity: mineralsData[name] }))]
+    : selectedDeposit?.minerals ?? []
+  const baseNames = selectedDeposit?.minerals.map(m => m.name) ?? []
 
   const deposits = selectedLocation?.deposits ?? []
   const depositIndex = deposits.findIndex(d => d.id === selectedDeposit?.id)
@@ -90,11 +111,19 @@ export default function App() {
         <Box style={{ flex: 1, minHeight: 0, overflow: 'auto' }} {...swipeHandlers}>
           <Container size="md" py="lg" style={{ height: '100%' }}>
             <Stack gap="lg" style={{ height: '100%' }}>
-              <Paper withBorder shadow="xl" p="md" bg="var(--mantine-color-default)" style={{ flex: 1, minHeight: 0 }}>
-                <ScrollArea h="100%" scrollbars="y" scrollbarSize={6} styles={{ thumb: { opacity: 0.4 } }}>
+              <Paper withBorder shadow="xl" p="md" bg="var(--mantine-color-default)" style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column' }}>
+                {isVoid && (
+                  <VoidMineralInput
+                    voidMinerals={voidMinerals}
+                    baseNames={baseNames}
+                    onAdd={addVoidMineral}
+                    onClear={clearVoidMinerals}
+                  />
+                )}
+                <ScrollArea style={{ flex: 1 }} scrollbars="y" scrollbarSize={6} styles={{ thumb: { opacity: 0.4 } }}>
                   <Box px="xs">
                     <MineralGrid
-                      minerals={selectedDeposit.minerals}
+                      minerals={displayedMinerals}
                       records={depositRecords}
                       onToggle={toggleRecord}
                     />
@@ -103,7 +132,7 @@ export default function App() {
               </Paper>
 
               {depositRecords.size > 0 && (
-                <RecordsBar records={depositRecords} minerals={selectedDeposit.minerals} onClear={clearAll} onUnflag={unflagMinerals} />
+                <RecordsBar records={depositRecords} minerals={displayedMinerals} onClear={clearDepositRecords} onUnrecord={unrecordMinerals} />
               )}
             </Stack>
           </Container>

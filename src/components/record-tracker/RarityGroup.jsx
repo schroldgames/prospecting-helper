@@ -19,7 +19,7 @@ export default function RarityGroup({ rarity, minerals, records, onToggle }) {
             key={mineral.name}
             name={mineral.name}
             rarity={rarity}
-            flagged={records.has(mineral.name)}
+            recorded={records.has(mineral.name)}
             onClick={() => onToggle(mineral.name)}
           />
         ))}

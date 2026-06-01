@@ -20,7 +20,7 @@ function loadSession() {
   }
 }
 
-function saveSession(locationId, depositId, records) {
+function saveSession(locationId, depositId, records, voidMinerals) {
   try {
     // Serialize records: { depositId: Set } → { depositId: string[] }
     const serializedRecords = Object.fromEntries(
@@ -30,6 +30,7 @@ function saveSession(locationId, depositId, records) {
       locationId,
       depositId,
       records: serializedRecords,
+      voidMinerals,
     }))
   } catch {
     // localStorage unavailable (private browsing quota, etc.) — fail silently
@@ -56,10 +57,11 @@ export function usePersistedState() {
   const [locationId, setLocationId] = useState(initialLocationId)
   const [depositId, setDepositId] = useState(initialDepositId)
   const [records, setRecords] = useState(saved?.records ?? {})
+  const [voidMinerals, setVoidMinerals] = useState(saved?.voidMinerals ?? [])
 
   useEffect(() => {
-    saveSession(locationId, depositId, records)
-  }, [locationId, depositId, records])
+    saveSession(locationId, depositId, records, voidMinerals)
+  }, [locationId, depositId, records, voidMinerals])
 
-  return { locationId, setLocationId, depositId, setDepositId, records, setRecords }
+  return { locationId, setLocationId, depositId, setDepositId, records, setRecords, voidMinerals, setVoidMinerals }
 }
