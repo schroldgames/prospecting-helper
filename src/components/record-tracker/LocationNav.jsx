@@ -32,7 +32,7 @@ export default function LocationNav({ selectedLocationId, onSelectLocation }) {
             </HoverCard.Target>
             <HoverCard.Dropdown style={{ maxWidth: 'min(400px, calc(100vw - var(--mantine-spacing-md) * 2))' }}>
               <Text size="sm">Select minerals to indicate record weights during a prospecting session.
-                Remember to mark them as favorites in your inventory so you don't accidentally sell them!</Text>
+                Remember to mark them as favorites in your inventory so you don&apos;t accidentally sell them!</Text>
             </HoverCard.Dropdown>
           </HoverCard>
         </Group>

@@ -24,7 +24,7 @@ export function useScale() {
   function cycleScale() {
     setScale(current => {
       const next = SCALE_STEPS[(SCALE_STEPS.indexOf(current) + 1) % SCALE_STEPS.length]
-      try { localStorage.setItem(STORAGE_KEY, String(next)) } catch {}
+      try { localStorage.setItem(STORAGE_KEY, String(next)) } catch { /* localStorage unavailable */ }
       return next
     })
   }
