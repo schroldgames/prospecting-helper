@@ -4,7 +4,7 @@ import { useIsMobile } from './useIsMobile'
 const STORAGE_KEY = 'prospecting-helper-scale'
 const SCALE_STEPS = [1, 1.5, 2]
 
-function loadScale(isMobile) {
+function loadScale(isMobile: boolean): number {
   try {
     const raw = localStorage.getItem(STORAGE_KEY)
     return raw ? parseFloat(raw) : (isMobile ? 1.5 : 1)
@@ -23,7 +23,7 @@ export function useScale() {
 
   function cycleScale() {
     setScale(current => {
-      const next = SCALE_STEPS[(SCALE_STEPS.indexOf(current) + 1) % SCALE_STEPS.length]
+      const next = SCALE_STEPS[(SCALE_STEPS.indexOf(current) + 1) % SCALE_STEPS.length] ?? SCALE_STEPS[0]
       try { localStorage.setItem(STORAGE_KEY, String(next)) } catch { /* localStorage unavailable */ }
       return next
     })

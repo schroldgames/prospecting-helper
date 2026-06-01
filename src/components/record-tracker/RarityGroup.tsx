@@ -1,7 +1,15 @@
 import { Box, Divider, SimpleGrid, Text } from '@mantine/core'
 import MineralButton from './MineralButton'
+import type { Mineral, Rarity } from '../../types'
 
-export default function RarityGroup({ rarity, minerals, records, onToggle }) {
+interface RarityGroupProps {
+  rarity: Rarity
+  minerals: Mineral[]
+  records: Set<string>
+  onToggle: (name: string) => void
+}
+
+export default function RarityGroup({ rarity, minerals, records, onToggle }: RarityGroupProps) {
   return (
     <Box>
       <Divider

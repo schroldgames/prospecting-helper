@@ -3,8 +3,16 @@ import { useDisclosure } from '@mantine/hooks'
 import { IconArrowBackUp } from '@tabler/icons-react'
 import RecordsModal from './RecordsModal'
 import ConfirmModal from '../common/ConfirmModal'
+import type { Mineral } from '../../types'
 
-export default function RecordsBar({ records, minerals, onClear, onUnrecord }) {
+interface RecordsBarProps {
+  records: Set<string>
+  minerals: Mineral[]
+  onClear: () => void
+  onUnrecord: (names: Set<string>) => void
+}
+
+export default function RecordsBar({ records, minerals, onClear, onUnrecord }: RecordsBarProps) {
   const [recordsOpened, { open: openRecords, close: closeRecords }] = useDisclosure(false)
   const [confirmOpened, { open: openConfirm, close: closeConfirm }] = useDisclosure(false)
 

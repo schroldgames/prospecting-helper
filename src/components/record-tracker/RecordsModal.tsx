@@ -3,21 +3,30 @@ import { useState } from 'react'
 import { IconStarFilled } from '@tabler/icons-react'
 import { RarityColors } from '../../constants/rarities'
 import { sortByRarity } from '../../utils/minerals'
+import type { Mineral, Rarity } from '../../types'
 
-function StarIcon({ className }) {
+interface RecordsModalProps {
+  opened: boolean
+  onClose: () => void
+  onConfirm: (names: Set<string>) => void
+  records: Set<string>
+  minerals: Mineral[]
+}
+
+function StarIcon({ className }: { className: string; indeterminate?: boolean }) {
   return <IconStarFilled className={className} />
 }
 
-export default function RecordsModal({ opened, onClose, onConfirm, records, minerals }) {
-  const [favorited, setFavorited] = useState(new Set())
+export default function RecordsModal({ opened, onClose, onConfirm, records, minerals }: RecordsModalProps) {
+  const [favorited, setFavorited] = useState<Set<string>>(new Set())
 
-  const rarityByName = Object.fromEntries(minerals.map(m => [m.name, m.rarity]))
-  const sorted = sortByRarity([...records], name => rarityByName[name])
+  const rarityByName: Record<string, Rarity> = Object.fromEntries(minerals.map(m => [m.name, m.rarity]))
+  const sorted = sortByRarity([...records], name => rarityByName[name] ?? 'Common')
 
-  function toggleFavorite(name) {
+  function toggleFavorite(name: string) {
     setFavorited(prev => {
       const next = new Set(prev)
-      next.has(name) ? next.delete(name) : next.add(name)
+      if (next.has(name)) { next.delete(name) } else { next.add(name) }
       return next
     })
   }
@@ -57,7 +66,7 @@ export default function RecordsModal({ opened, onClose, onConfirm, records, mine
           {sorted.map(name => (
             <UnstyledButton key={name} w="100%" onClick={() => toggleFavorite(name)}>
               <Group justify="space-between" wrap="nowrap">
-                <Text size="sm" c={RarityColors[rarityByName[name]]}>{name}</Text>
+                <Text size="sm" c={RarityColors[rarityByName[name] ?? 'Common']}>{name}</Text>
                 <Checkbox
                   checked={favorited.has(name)}
                   onChange={() => { }}

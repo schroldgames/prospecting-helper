@@ -1,7 +1,15 @@
 import { Box } from '@mantine/core'
 import DepositTabs from './DepositTabs'
+import type { Deposit } from '../../types'
 
-export default function RecordTrackerToolbar({ locationId, deposits, selectedDepositId, onSelectDeposit }) {
+interface RecordTrackerToolbarProps {
+  locationId: string | undefined
+  deposits: Deposit[] | undefined
+  selectedDepositId: string | undefined
+  onSelectDeposit: (deposit: Deposit) => void
+}
+
+export default function RecordTrackerToolbar({ locationId, deposits, selectedDepositId, onSelectDeposit }: RecordTrackerToolbarProps) {
   if (!deposits) return null
 
   return (

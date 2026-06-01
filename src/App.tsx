@@ -9,10 +9,18 @@ import VoidMineralInput from './components/record-tracker/VoidMineralInput'
 import { usePersistedState } from './hooks/usePersistedState'
 import { useIsMobile } from './hooks/useIsMobile'
 import { useSwipe } from './hooks/useSwipe'
-import locations from './data/index.js'
+import locations from './data/index'
 import mineralsData from './data/minerals.json'
-function findLocation(id) { return locations.find(l => l.id === id) ?? null }
-function findDeposit(loc, id) { return loc?.deposits.find(d => d.id === id) ?? null }
+import type { Location, Deposit, RawLocation, Rarity, Records } from './types'
+
+const minerals = mineralsData as Record<string, Rarity>
+
+function findLocation(id: string): Location | null {
+  return locations.find(l => l.id === id) ?? null
+}
+function findDeposit(loc: Location | null, id: string): Deposit | null {
+  return loc?.deposits.find(d => d.id === id) ?? null
+}
 
 export default function App() {
   const isMobile = useIsMobile()
@@ -22,32 +30,34 @@ export default function App() {
   const selectedLocation = findLocation(locationId)
   const selectedDeposit = findDeposit(selectedLocation, depositId)
 
-  function selectLocation(loc) {
+  function selectLocation(loc: RawLocation) {
     setLocationId(loc.id)
     setDepositId(loc.deposits[0].id)
     if (isMobile) closeNav()
   }
 
-  function toggleRecord(mineralName) {
+  function toggleRecord(mineralName: string) {
+    if (!selectedDeposit) return
     const id = selectedDeposit.id
-    setRecords(prev => {
+    setRecords((prev: Records) => {
       const current = new Set(prev[id] ?? [])
-      current.has(mineralName) ? current.delete(mineralName) : current.add(mineralName)
+      if (current.has(mineralName)) { current.delete(mineralName) } else { current.add(mineralName) }
       return { ...prev, [id]: current }
     })
   }
 
   function clearDepositRecords() {
+    if (!selectedDeposit) return
     const id = selectedDeposit.id
-    setRecords(prev => ({ ...prev, [id]: new Set() }))
+    setRecords((prev: Records) => ({ ...prev, [id]: new Set() }))
   }
 
-  function addVoidMineral(name) {
+  function addVoidMineral(name: string) {
     setVoidMinerals(prev => [...prev, name])
   }
 
   function clearVoidMinerals() {
-    setRecords(prev => {
+    setRecords((prev: Records) => {
       const current = new Set(prev['the-void-digsite'] ?? [])
       voidMinerals.forEach(name => current.delete(name))
       return { ...prev, 'the-void-digsite': current }
@@ -55,20 +65,24 @@ export default function App() {
     setVoidMinerals([])
   }
 
-  function unrecordMinerals(names) {
+  function unrecordMinerals(names: Set<string>) {
+    if (!selectedDeposit) return
     const id = selectedDeposit.id
-    setRecords(prev => {
+    setRecords((prev: Records) => {
       const current = new Set(prev[id] ?? [])
       names.forEach(name => current.delete(name))
       return { ...prev, [id]: current }
     })
   }
 
-  const depositRecords = selectedDeposit ? (records[selectedDeposit.id] ?? new Set()) : new Set()
+  const depositRecords: Set<string> = selectedDeposit ? (records[selectedDeposit.id] ?? new Set()) : new Set()
 
   const isVoid = selectedLocation?.id === 'the-void'
   const displayedMinerals = isVoid
-    ? [...(selectedDeposit?.minerals ?? []), ...voidMinerals.map(name => ({ name, rarity: mineralsData[name] }))]
+    ? [
+        ...(selectedDeposit?.minerals ?? []),
+        ...voidMinerals.map(name => ({ name, rarity: minerals[name] })),
+      ]
     : selectedDeposit?.minerals ?? []
   const baseNames = selectedDeposit?.minerals.map(m => m.name) ?? []
 

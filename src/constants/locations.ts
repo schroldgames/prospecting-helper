@@ -1,4 +1,4 @@
-export const DepositGradients = {
+export const DepositGradients: Record<string, string> = {
   // Rubble Creek
   'rubble-creek-sands':       'linear-gradient(90deg,#ecc183,#ffbc79)',
   'rubble-creek-deposits':    'linear-gradient(90deg,#aadeff,#81a1d6)',
@@ -26,7 +26,7 @@ export const DepositGradients = {
   'astral-caverns':           'linear-gradient(90deg,#BE186F,#FFA5D4)',
 }
 
-export const LocationGradients = {
+export const LocationGradients: Record<string, string> = {
   'rubble-creek':        'linear-gradient(90deg,#dbc37f,#dba040)',
   'fortune-river':       'linear-gradient(90deg,#e8a200,#f2e935)',
   'fortune-river-delta': 'linear-gradient(90deg,#99d58c,#70c476)',

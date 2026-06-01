@@ -1,6 +1,8 @@
-export const RarityOrder = ['Common', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Mythic', 'Exotic']
+import type { Rarity } from '../types'
 
-export const RarityColors = {
+export const RarityOrder: Rarity[] = ['Common', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Mythic', 'Exotic']
+
+export const RarityColors: Record<Rarity, string> = {
   Common:    'gray',
   Uncommon:  'green',
   Rare:      'blue',
@@ -10,7 +12,7 @@ export const RarityColors = {
   Exotic:    'red',
 }
 
-export const RarityGradients = {
+export const RarityGradients: Record<Rarity, string> = {
   Common:    'linear-gradient(90deg,#919191,#cccccc,#919191)',
   Uncommon:  'linear-gradient(90deg,#05b302,#1fd13a,#05b302)',
   Rare:      'linear-gradient(90deg,#0062c4,#0059ff,#0062c4)',

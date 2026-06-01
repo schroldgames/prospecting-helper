@@ -1,6 +1,24 @@
 import { Button, Group, Modal, Text } from '@mantine/core'
 
-export default function ConfirmModal({ opened, onClose, onConfirm, title, message, confirmLabel = 'Confirm', confirmColor = 'red' }) {
+interface ConfirmModalProps {
+  opened: boolean
+  onClose: () => void
+  onConfirm: () => void
+  title: string
+  message?: string
+  confirmLabel?: string
+  confirmColor?: string
+}
+
+export default function ConfirmModal({
+  opened,
+  onClose,
+  onConfirm,
+  title,
+  message,
+  confirmLabel = 'Confirm',
+  confirmColor = 'red',
+}: ConfirmModalProps) {
   function handleConfirm() {
     onConfirm()
     onClose()

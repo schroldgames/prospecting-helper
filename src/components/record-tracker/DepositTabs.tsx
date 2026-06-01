@@ -1,9 +1,17 @@
 import { useEffect, useRef } from 'react'
 import { Tabs } from '@mantine/core'
 import { DepositGradients, LocationGradients } from '../../constants/locations'
+import type { Deposit } from '../../types'
 
-export default function DepositTabs({ deposits, selectedDepositId, onSelectDeposit, locationId }) {
-  const scrollRef = useRef(null)
+interface DepositTabsProps {
+  deposits: Deposit[]
+  selectedDepositId: string | undefined
+  onSelectDeposit: (deposit: Deposit) => void
+  locationId: string | undefined
+}
+
+export default function DepositTabs({ deposits, selectedDepositId, onSelectDeposit, locationId }: DepositTabsProps) {
+  const scrollRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const container = scrollRef.current
@@ -22,12 +30,15 @@ export default function DepositTabs({ deposits, selectedDepositId, onSelectDepos
   return (
     <Tabs
       value={selectedDepositId}
-      onChange={id => onSelectDeposit(deposits.find(d => d.id === id))}
+      onChange={id => {
+        const deposit = deposits.find(d => d.id === id)
+        if (deposit) onSelectDeposit(deposit)
+      }}
     >
       <div ref={scrollRef} className="scrollbar-none" style={{ overflowX: 'auto' }}>
         <Tabs.List style={{ flexWrap: 'nowrap' }}>
           {deposits.map(dep => {
-            const gradient = DepositGradients[dep.id] ?? LocationGradients[locationId]
+            const gradient = DepositGradients[dep.id] ?? (locationId ? LocationGradients[locationId] : undefined)
             const isActive = dep.id === selectedDepositId
             return (
               <Tabs.Tab

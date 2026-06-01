@@ -1,7 +1,13 @@
 import { Button } from '@mantine/core'
 import { LocationGradients } from '../../constants/locations'
 
-export default function LocationButton({ location, selected, onClick }) {
+interface LocationButtonProps {
+  location: { id: string; name: string }
+  selected: boolean
+  onClick: () => void
+}
+
+export default function LocationButton({ location, selected, onClick }: LocationButtonProps) {
   const gradient = LocationGradients[location.id]
 
   return (

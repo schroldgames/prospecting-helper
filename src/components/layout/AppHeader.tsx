@@ -5,7 +5,12 @@ import HeaderButton from '../common/HeaderButton'
 import { useScale } from '../../hooks/useScale'
 import { useIsMobile } from '../../hooks/useIsMobile'
 
-export default function AppHeader({ navOpened, onToggleNav }) {
+interface AppHeaderProps {
+  navOpened: boolean
+  onToggleNav: () => void
+}
+
+export default function AppHeader({ navOpened, onToggleNav }: AppHeaderProps) {
   const { setColorScheme } = useMantineColorScheme()
   const colorScheme = useComputedColorScheme('dark')
   const isDark = colorScheme === 'dark'

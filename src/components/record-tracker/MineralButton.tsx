@@ -1,9 +1,17 @@
 import { Button } from '@mantine/core'
 import { useComputedColorScheme } from '@mantine/core'
 import { RarityGradients } from '../../constants/rarities'
+import type { Rarity } from '../../types'
 
-function gradientAtOpacity(gradient, opacity) {
-  return gradient.replace(/#([0-9a-fA-F]{6})/gi, (_, hex) => {
+interface MineralButtonProps {
+  name: string
+  rarity: Rarity
+  recorded: boolean
+  onClick: () => void
+}
+
+function gradientAtOpacity(gradient: string, opacity: number): string {
+  return gradient.replace(/#([0-9a-fA-F]{6})/gi, (_, hex: string) => {
     const r = parseInt(hex.slice(0, 2), 16)
     const g = parseInt(hex.slice(2, 4), 16)
     const b = parseInt(hex.slice(4, 6), 16)
@@ -11,7 +19,7 @@ function gradientAtOpacity(gradient, opacity) {
   })
 }
 
-export default function MineralButton({ name, rarity, recorded, onClick }) {
+export default function MineralButton({ name, rarity, recorded, onClick }: MineralButtonProps) {
   const isDark = useComputedColorScheme('dark') === 'dark'
   const gradient = RarityGradients[rarity]
 

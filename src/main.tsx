@@ -5,14 +5,14 @@ import { Notifications } from '@mantine/notifications'
 import '@mantine/core/styles.css'
 import '@mantine/notifications/styles.css'
 import './index.css'
-import App from './App.jsx'
-import { theme } from './theme.ts'
+import App from './App'
+import { theme } from './theme'
 
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/sw.js')
 }
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <MantineProvider theme={theme} defaultColorScheme="dark">
       <Notifications position="bottom-center" autoClose={4000} />
