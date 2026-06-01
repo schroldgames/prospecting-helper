@@ -1,9 +1,9 @@
 import { Burger, Group, Popover, Stack, Switch, Text, Title } from '@mantine/core'
 import { useComputedColorScheme, useMantineColorScheme } from '@mantine/core'
 import { IconMoon, IconSettings, IconSun, IconTextSize } from '@tabler/icons-react'
-import HeaderButton from './HeaderButton'
-import { useScale } from '../hooks/useScale'
-import { useIsMobile } from '../hooks/useIsMobile'
+import HeaderButton from '../common/HeaderButton'
+import { useScale } from '../../hooks/useScale'
+import { useIsMobile } from '../../hooks/useIsMobile'
 
 export default function AppHeader({ navOpened, onToggleNav }) {
   const { setColorScheme } = useMantineColorScheme()

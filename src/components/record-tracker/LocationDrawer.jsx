@@ -1,5 +1,5 @@
 import { Drawer, Stack, Text } from '@mantine/core'
-import locations from '../data/locations.json'
+import locations from '../../data/locations.json'
 import LocationGroup from './LocationGroup'
 
 export default function LocationDrawer({ opened, onClose, selectedLocationId, onSelectLocation }) {

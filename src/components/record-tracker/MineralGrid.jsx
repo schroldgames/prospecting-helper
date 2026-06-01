@@ -1,5 +1,5 @@
 import { Stack } from '@mantine/core'
-import { RarityOrder } from '../constants/rarities'
+import { RarityOrder } from '../../constants/rarities'
 import RarityGroup from './RarityGroup'
 
 export default function MineralGrid({ minerals, records, onToggle }) {

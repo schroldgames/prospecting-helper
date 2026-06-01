@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Tabs } from '@mantine/core'
-import { DepositGradients, LocationGradients } from '../constants/locations'
+import { DepositGradients, LocationGradients } from '../../constants/locations'
 
 export default function DepositTabs({ deposits, selectedDepositId, onSelectDeposit, locationId }) {
   const scrollRef = useRef(null)

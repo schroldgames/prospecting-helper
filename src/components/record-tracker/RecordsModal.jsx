@@ -1,7 +1,7 @@
 import { Button, Checkbox, Group, Modal, Stack, Text, UnstyledButton } from '@mantine/core'
 import { useState } from 'react'
 import { IconStarFilled } from '@tabler/icons-react'
-import { RarityColors, RarityOrder } from '../constants/rarities'
+import { RarityColors, RarityOrder } from '../../constants/rarities'
 
 function StarIcon({ className }) {
   return <IconStarFilled className={className} />

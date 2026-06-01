@@ -1,5 +1,5 @@
 import { Button } from '@mantine/core'
-import { LocationGradients } from '../constants/locations'
+import { LocationGradients } from '../../constants/locations'
 
 export default function LocationButton({ location, selected, onClick }) {
   const gradient = LocationGradients[location.id]

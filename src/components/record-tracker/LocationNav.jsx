@@ -1,8 +1,8 @@
 import { AppShell, Divider, Group, HoverCard, ScrollArea, Stack, Text } from '@mantine/core'
 import { IconHelp } from '@tabler/icons-react'
-import locations from '../data/locations.json'
+import locations from '../../data/locations.json'
 import LocationGroup from './LocationGroup'
-import HeaderButton from './HeaderButton'
+import HeaderButton from '../common/HeaderButton'
 
 export default function LocationNav({ selectedLocationId, onSelectLocation }) {
   return (

@@ -1,5 +1,5 @@
 import { AppShell } from '@mantine/core'
-import LocationNav from './LocationNav'
+import LocationNav from '../record-tracker/LocationNav'
 
 export const navbarConfig = { width: 300, breakpoint: 'sm' }
 

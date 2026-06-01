@@ -1,6 +1,6 @@
 import { Button } from '@mantine/core'
 import { useComputedColorScheme } from '@mantine/core'
-import { RarityGradients } from '../constants/rarities'
+import { RarityGradients } from '../../constants/rarities'
 
 function gradientAtOpacity(gradient, opacity) {
   return gradient.replace(/#([0-9a-fA-F]{6})/gi, (_, hex) => {
